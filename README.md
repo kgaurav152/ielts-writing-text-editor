@@ -14,9 +14,15 @@ Improve your IELTS writing skills with our interactive practice tool! Crafted wi
 
 - **Instant Reset Button 🔄**: A dedicated button to clear the editor, allowing you to start fresh in an instant.
 
-- **Enhanced Timer Options**: Greater control over your timer settings, including pausing and resetting.
+- **Enhanced Timer Options ⏱**: Greater control over your timer settings, including pausing, resetting, and specific preset shortcuts for Task 1 and Task 2.
 
-- **Export Word File Option**: Option to simply export the complete written text into .docx file so that it can also be analyzed later on.
+- **Export to DOCX 📄**: Effortlessly single-click export your entire text editor content directly into a `.docx` Word File format for deeper offline analysis and storage.
+
+- **Full-Screen Focus Mode ⛶**: Eliminate all desktop distractions by toggling the editor into a completely maximized full-screen view.
+
+- **Dark/Light Theme Toggle ☀️🌙**: Switch between a sleek Dark Mode and a high-contrast Light Mode that simulates the actual computer-delivered IELTS exam UI.
+
+- **Auto-Save Protection 💾**: All typed text is safely stored continuously in the browser's Local Storage. If you accidentally refresh the page or close your tab, your essay will still be exactly where you left it.
 
 ## Coming Soon 🚧
 

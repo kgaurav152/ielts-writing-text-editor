@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description"
+        content="IELTS Writing Practice Tool designed for aspirants to excel in the writing section. Features: Timer, Word Count, Disabled Autocorrect & Autocomplete, Grammarly Blocking, and a specialized Text Editor. The ideal solution for focused IELTS writing practice.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS - Writing Practice</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="output.css">
+</head>
+
+<body class="bg-gradient-to-br from-blue-900 to-black" onload="cleartextarea()">
+    <header id="mainHeader" class="flex justify-between items-center py-6 px-8 bg-black bg-opacity-50 text-white">
+        <div></div> <!-- Spacer -->
+        <h1 class="text-2xl font-bold">🖋 IELTS - Writing Practice 🖋</h1>
+        <div class="flex space-x-4">
+            <button onclick="toggleTheme()" class="text-xl hover:text-yellow-400" title="Toggle Light/Dark Mode">
+                <i class="fas fa-sun" id="themeIcon"></i>
+            </button>
+        </div>
+    </header>
+
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 mt-10">
+        <div class="flex justify-between items-center mb-4">
+            <h3 id="taskTitle" class="text-xl text-gray-300">IELTS writing Task - 1/2</h3>
+            <div class="flex items-center space-x-4">
+                <button onclick="exportToDocx()" id="exportBtn"
+                    class="bg-blue-600 text-white py-2 px-4 text-sm rounded hover:bg-blue-700 shadow-md whitespace-nowrap">
+                    <i class="fas fa-download"></i> Export to DOCX
+                </button>
+                <button onclick="toggleFullScreen()" id="fullscreenBtn"
+                    class="bg-gray-700 text-white py-1 px-3 text-sm rounded hover:bg-gray-600 shadow-md whitespace-nowrap"
+                    title="Full Screen Focus">
+                    <i class="fas fa-expand" id="fullscreenIcon"></i> <span id="fullscreenText">Full Screen</span>
+                </button>
+            </div>
+        </div>
+        <div class="flex justify-between items-end mb-4 gap-4 flex-wrap">
+            <div class="flex items-center space-x-4">
+                <div id="Time" class="text-gray-400 font-bold whitespace-nowrap">Timer - mm:ss</div>
+                <button onclick="togglePauseTimer()" id="pauseTimerBtn"
+                    class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 shadow-md whitespace-nowrap hidden">
+                    <i class="fas fa-pause"></i> Pause Timer
+                </button>
+                <button onclick="resetTimer()" id="resetTimerBtn"
+                    class="bg-red-600 text-white py-2 px-4 rounded hover:bg-red-700 shadow-md whitespace-nowrap hidden">
+                    <i class="fas fa-undo"></i> Reset Timer
+                </button>
+            </div>
+            <div id="word_count" class="text-gray-400 text-right whitespace-nowrap">Total Word Count : 0</div>
+        </div>
+
+
+        <div id="writing_area" class="mb-4">
+            <label for="writing" id="writingLabel" class="block text-white mb-2">Start writing here..</label>
+            <textarea name="writing" spellcheck="false" autocorrect="off" autocapitalize="off" data-gramm_editor="false"
+                id="writing" cols="50" rows="20"
+                class="w-full p-4 border rounded bg-black bg-opacity-50 text-gray-300"></textarea>
+
+        </div>
+        <div id="counter" class="mb-4">
+            <div class="flex items-center space-x-4 mb-4 flex-wrap gap-y-2">
+                <input type="number" id="min" min="1" placeholder="minutes" class="border p-3 rounded w-32 shadow-md">
+                <button onclick="selectTask1()" id="task1Btn"
+                    class="bg-gray-700 text-white py-2 px-4 rounded hover:bg-gray-600 shadow-md whitespace-nowrap">
+                    Task 1 (20m / 150w)
+                </button>
+                <button onclick="selectTask2()" id="task2Btn"
+                    class="bg-gray-700 text-white py-2 px-4 rounded hover:bg-gray-600 shadow-md whitespace-nowrap">
+                    Task 2 (40m / 250w)
+                </button>
+                <button onclick="countdown()" id="startimer"
+                    class="bg-blue-600 text-white py-3 px-6 rounded hover:bg-blue-700 shadow-md disabled:bg-gray-600 disabled:cursor-not-allowed whitespace-nowrap">
+                    <i class="fas fa-play"></i> Start Timer
+                </button>
+            </div>
+            <div class="flex flex-wrap gap-4">
+                <button onclick="pauseAudio()" id="pause"
+                    class="bg-blue-600 text-white py-3 px-6 rounded hover:bg-blue-700 shadow-md whitespace-nowrap">
+                    <i class="fas fa-pause"></i> Pause Audio
+                </button>
+                <button onclick="resettextbox()" id="resetTextBtn"
+                    class="bg-blue-600 text-white py-3 px-6 rounded hover:bg-blue-700 shadow-md whitespace-nowrap">
+                    <i class="fas fa-redo"></i> Reset Text Editor
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="flex flex-col items-center justify-center text-center py-6 bg-black bg-opacity-50 text-white">
+        <a href="#" class="text-s text-gray-300 mb-4">Made With 💙 ~Kumar Gaurav</a>
+        <a href="https://github.com/kgaurav152/ielts-writing-text-editor" target="__blank__"
+            class="text-s text-gray-300 mb-4 underline">👨‍💻Contribute to this project.👩‍💻</a>
+    </footer>
+
+
+
+    <script src="https://unpkg.com/docx@7.8.2/build/index.js"></script>
+    <script src="./support.js"></script>
+</body>
+
+</html>

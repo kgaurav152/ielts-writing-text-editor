@@ -33,8 +33,12 @@
                     class="bg-blue-600 text-white py-2 px-4 text-sm rounded hover:bg-blue-700 shadow-md whitespace-nowrap">
                     <i class="fas fa-download"></i> Export to DOCX
                 </button>
+                <button onclick="copyToClipboard()" id="copyBtn"
+                    class="bg-green-600 text-white py-2 px-4 text-sm rounded hover:bg-green-700 shadow-md whitespace-nowrap">
+                    <i class="fas fa-copy"></i> Copy to clipboard
+                </button>
                 <button onclick="toggleFullScreen()" id="fullscreenBtn"
-                    class="bg-yellow-700 text-white py-1 px-3 text-sm rounded hover:bg-gray-600 shadow-md whitespace-nowrap"
+                    class="bg-gray-700 text-white py-1 px-3 text-sm rounded hover:bg-gray-600 shadow-md whitespace-nowrap"
                     title="Full Screen Focus">
                     <i class="fas fa-expand" id="fullscreenIcon"></i> <span id="fullscreenText">Full Screen</span>
                 </button>
@@ -67,11 +71,11 @@
             <div class="flex items-center space-x-4 mb-4 flex-wrap gap-y-2">
                 <input type="number" id="min" min="1" placeholder="minutes" class="border p-3 rounded w-32 shadow-md">
                 <button onclick="selectTask1()" id="task1Btn"
-                    class="bg-yellow-700 text-white py-2 px-4 rounded hover:bg-gray-600 shadow-md whitespace-nowrap">
+                    class="bg-gray-700 text-white py-2 px-4 rounded hover:bg-gray-600 shadow-md whitespace-nowrap">
                     Task 1 (20m / 150w)
                 </button>
                 <button onclick="selectTask2()" id="task2Btn"
-                    class="bg-yellow-700 text-white py-2 px-4 rounded hover:bg-gray-600 shadow-md whitespace-nowrap">
+                    class="bg-gray-700 text-white py-2 px-4 rounded hover:bg-gray-600 shadow-md whitespace-nowrap">
                     Task 2 (40m / 250w)
                 </button>
                 <button onclick="countdown()" id="startimer"

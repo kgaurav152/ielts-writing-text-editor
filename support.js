@@ -160,10 +160,10 @@ document
     if (targetWords > 0) {
       wordCountEl.innerText = `Total Word Count : ${res.length} / ${targetWords}`;
       if (res.length >= targetWords) {
-        wordCountEl.classList.add("text-blue-500");
+        wordCountEl.classList.add("text-green-500");
         wordCountEl.classList.remove("text-gray-400");
       } else {
-        wordCountEl.classList.remove("text-blue-500");
+        wordCountEl.classList.remove("text-green-500");
         wordCountEl.classList.add("text-gray-400");
       }
     } else {
@@ -223,6 +223,19 @@ function exportToDocx() {
     a.download = "IELTS_Practice.docx";
     a.click();
     URL.revokeObjectURL(url);
+  });
+}
+
+function copyToClipboard() {
+  const text = document.getElementById("writing").value;
+  if (!text.trim()) {
+    alert("There is no text to copy.");
+    return;
+  }
+  navigator.clipboard.writeText(text).then(() => {
+    alert("Text copied to clipboard!");
+  }).catch(err => {
+    alert("Failed to copy text: " + err);
   });
 }
 

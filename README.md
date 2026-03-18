@@ -18,6 +18,8 @@ Improve your IELTS writing skills with our interactive practice tool! Crafted wi
 
 - **Export to DOCX 📄**: Effortlessly single-click export your entire text editor content directly into a `.docx` Word File format for deeper offline analysis and storage.
 
+- **Copy to Clipboard 📋**: Instantly copy your entire essay to your clipboard with a single click, making it ready to paste wherever you need it.
+
 - **Full-Screen Focus Mode ⛶**: Eliminate all desktop distractions by toggling the editor into a completely maximized full-screen view.
 
 - **Dark/Light Theme Toggle ☀️🌙**: Switch between a sleek Dark Mode and a high-contrast Light Mode that simulates the actual computer-delivered IELTS exam UI.
